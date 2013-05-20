@@ -13,12 +13,7 @@ namespace Auth.Business
         public AccountService(IUserRepository  repository)
         {
             _repository = repository;
-        }
-
-        public User Get(Guid id)
-        {
-            return _repository.Get(id);
-        }
+        } 
         public User GetByUsername(string username)
         {
             return _repository.GetByUsername(  username);

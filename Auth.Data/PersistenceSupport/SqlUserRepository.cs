@@ -18,18 +18,7 @@ namespace Auth.Data.PersistenceSupport
         {
             this._membershipTable = new DynamicModel(connectionString, "[dbo].[Membership]", "Id");
         } 
-
-        public User Get(Guid id)
-        { 
-            string sqlQuery = "SELECT top (1)  * FROM Membership where Id = @0";
-            IEnumerable<dynamic> data = this._membershipTable.Query(sqlQuery, id);
-            return data.Select(x => new User
-            {
-                Id = x.Id,
-                Username = x.Name,
-                Password = x.Password
-            }).FirstOrDefault<User>(); 
-        }
+         
 
         public User GetByUsername(string username)
         {

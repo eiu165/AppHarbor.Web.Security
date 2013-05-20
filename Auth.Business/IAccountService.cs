@@ -7,8 +7,7 @@ using System.Text;
 namespace Auth.Business
 { 
     public interface IAccountService
-    {
-        User Get(Guid id);
+    { 
         User GetByUsername(string username);
         IEnumerable<User> GetAll();
         void SaveOrUpdate (User entity)  ; 

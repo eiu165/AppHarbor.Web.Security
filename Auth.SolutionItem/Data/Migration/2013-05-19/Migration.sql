@@ -30,10 +30,7 @@ BEGIN
 	INSERT INTO [dbo].[Membership](   [Name], [Password], [PasswordSalt] )
 	SELECT  N'dev',   N'aaa',   N''   UNION ALL
 	SELECT  N'admin',   N'aaa',   N'' 
-	COMMIT;
-
-	
-
+	COMMIT; 
 END
 GO
 
