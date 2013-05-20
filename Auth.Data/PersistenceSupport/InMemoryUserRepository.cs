@@ -6,24 +6,24 @@ using Auth.Data.PersistenceSupport;
 
 namespace Auth.Data.PersistenceSupport
 {
-	public class InMemoryUserRepository : IRepository
+	public class InMemoryUserRepository : IUserRepository
 	{
 		private static IDictionary<Type, IDictionary<Guid, object>> _dictionaries =
 			new Dictionary<Type, IDictionary<Guid, object>>();
 
-		public T Get<T>(Guid id) where T : Entity
+        public User Get (Guid id) 
 		{
 			IDictionary<Guid, object> dictionary;
-			if (_dictionaries.TryGetValue(typeof(T), out dictionary))
+            if (_dictionaries.TryGetValue(typeof(User), out dictionary))
 			{
-				return (T)dictionary[id];
-			} 
-			return default(T);
+                return (User)dictionary[id];
+			}
+            return default(User);
 		}
 
-		public void SaveOrUpdate<T>(T entity) where T : Entity
+        public void SaveOrUpdate (User entity)  
 		{
-			var type = typeof(T);
+            var type = typeof(User);
 			IDictionary<Guid, object> dictionary;
 			if (!_dictionaries.TryGetValue(type, out dictionary))
 			{
@@ -33,14 +33,20 @@ namespace Auth.Data.PersistenceSupport
 			dictionary[entity.Id] = entity;
 		}
 
-		public IQueryable<T> GetAll<T>() where T : Entity
+        public IEnumerable<User> GetAll()  
 		{
-			var type = typeof(T);
+            var type = typeof(User);
 			if (_dictionaries.ContainsKey(type))
 			{
-				return _dictionaries[type].Values.OfType<T>().AsQueryable();
-			} 
-			return Enumerable.Empty<T>().AsQueryable();
+                return _dictionaries[type].Values.OfType<User>().AsQueryable();
+			}
+            return Enumerable.Empty<User>().AsQueryable();
 		}
-	}
+
+        public User Get<User>(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+         
+    }
 }

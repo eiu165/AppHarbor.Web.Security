@@ -26,15 +26,16 @@ namespace AuthenticationExample.Web
 		protected void Application_Start()
 		{
 			ControllerBuilder.Current.SetControllerFactory(new StructureMapControllerFactory());
-
-			ObjectFactory.Initialize(x =>
+            
+            ObjectFactory.Configure(x => x.ForRequestedType<IUserRepository>().TheDefaultIsConcreteType<InMemoryUserRepository>());
+            ObjectFactory.Configure(x => x.ForRequestedType<ICookieAuthenticationConfiguration>().TheDefaultIsConcreteType<ConfigFileAuthenticationConfiguration>());
+            ObjectFactory.Configure(x => x.ForRequestedType<IAuthenticator>().TheDefaultIsConcreteType<CookieAuthenticator>());
+            ObjectFactory.Configure(x => x.ForRequestedType<IAccountService>().TheDefaultIsConcreteType<AccountService>()); 
+            ObjectFactory.Initialize(x => 
             {
-                x.For<IRepository>().Use(new InMemoryUserRepository());
-                x.For<IAccountService>().Use(new AccountService(ObjectFactory.GetInstance<IRepository>()));
-				x.For<HttpContextBase>().Use(() => new HttpContextWrapper(HttpContext.Current));
-				x.For<ICookieAuthenticationConfiguration>().Use<ConfigFileAuthenticationConfiguration>();
-				x.For<IAuthenticator>().Use<CookieAuthenticator>();
+				x.For<HttpContextBase>().Use(() => new HttpContextWrapper(HttpContext.Current)); 
 			});
+              
 
 			AreaRegistration.RegisterAllAreas();
 

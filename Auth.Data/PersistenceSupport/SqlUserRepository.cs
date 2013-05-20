@@ -2,13 +2,14 @@
 using Massive;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Collections;
+using System.Linq; 
 using System.Text;
 
 namespace Auth.Data.PersistenceSupport
 {
-
-    public class SqlUserRepository : IRepository
+    /*
+    public class SqlUserRepository : IUserRepository
     {
         private readonly DynamicModel _membershipTable;
 
@@ -21,13 +22,14 @@ namespace Auth.Data.PersistenceSupport
         public T Get<T>(Guid id) where T : Entity
         {
             throw new NotImplementedException();
-            //IEnumerable<dynamic> data = this._membershipTable.Query("SELECT top 1 * FROM Membership"); ; 
-            //return data.Select( x => new User
-            //        {
-            //            Id = x.Id,
-            //            Username = x.Name,
-            //            Password = x.Password 
-            //        }).FirstOrDefault<T>(); 
+            string sqlQuery = "SELECT top 1 * FROM Membership where Id = @0";
+            IEnumerable<dynamic> data = this._membershipTable.Query(sqlQuery, id);
+            return data.Select(x => new User
+                    {
+                        Id = x.Id,
+                        Username = x.Name,
+                        Password = x.Password
+                    }).FirstOrDefault<T>(); 
         }
 
         public IQueryable<T> GetAll<T>() where T : Entity
@@ -40,5 +42,5 @@ namespace Auth.Data.PersistenceSupport
             throw new NotImplementedException();
         }
     }
-
+    */
 }

@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="Infastructure\Massive.cs" />
     <Compile Include="PersistenceSupport\InMemoryUserRepository.cs" />
-    <Compile Include="PersistenceSupport\IRepository.cs" />
+    <Compile Include="PersistenceSupport\IUserRepository.cs" />
     <Compile Include="PersistenceSupport\SqlUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

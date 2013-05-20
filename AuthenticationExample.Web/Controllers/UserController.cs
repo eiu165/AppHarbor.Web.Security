@@ -12,9 +12,9 @@ namespace AuthenticationExample.Web.Controllers
 	public class UserController : Controller
 	{
 		private readonly IAuthenticator _authenticator;
-		private readonly IRepository _repository;
+		private readonly IUserRepository _repository;
 
-		public UserController(IAuthenticator authenticator, IRepository repository)
+		public UserController(IAuthenticator authenticator, IUserRepository repository)
 		{
 			_authenticator = authenticator;
 			_repository = repository;
@@ -29,7 +29,7 @@ namespace AuthenticationExample.Web.Controllers
 		[HttpPost]
 		public ActionResult Create(UserInputModel userInputModel)
 		{
-			if (_repository.GetAll<User>().Any(x => x.Username == userInputModel.Username))
+			if (_repository.GetAll().Any(x => x.Username == userInputModel.Username))
 			{
 				ModelState.AddModelError("Username", "Username is already in use");
 			}
@@ -57,7 +57,7 @@ namespace AuthenticationExample.Web.Controllers
 		[Authorize]
 		public ActionResult Show()
 		{
-			var user = _repository.GetAll<User>().SingleOrDefault(x => x.Username == User.Identity.Name);
+			var user = _repository.GetAll().SingleOrDefault(x => x.Username == User.Identity.Name);
 			if (user == null)
 			{
 				throw new HttpException(404, "Not found");

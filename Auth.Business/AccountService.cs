@@ -9,25 +9,25 @@ namespace Auth.Business
 {
     public class AccountService : IAccountService
     {
-        private IRepository _repository;
-        public AccountService(IRepository  repository)
+        private IUserRepository _repository;
+        public AccountService(IUserRepository  repository)
         {
             _repository = repository;
         }
 
-        public T Get<T>(Guid id) where T : Entity
+        public User Get (Guid id) 
         {
-            return _repository.Get<T>(id);
+            return _repository.Get(id);
         }
 
-        public IQueryable<T> GetAll<T>() where T : Entity
+        public IEnumerable<User> GetAll()  
         {
-            return _repository.GetAll<T>( );
+            return _repository.GetAll( );
         }
 
-        public void SaveOrUpdate<T>(T entity) where T : Entity
+        public void SaveOrUpdate(User entity)  
         {
-            _repository.SaveOrUpdate<T>(entity);
+            _repository.SaveOrUpdate(entity);
         }
     }
 }
