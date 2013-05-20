@@ -23,6 +23,10 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -66,6 +70,10 @@
     <ProjectReference Include="..\AppHarbor.Web.Security\AppHarbor.Web.Security.csproj">
       <Project>{BA59E36D-677F-4F70-94DF-C75C8860F67B}</Project>
       <Name>AppHarbor.Web.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Auth.Entity\Auth.Entity.csproj">
+      <Project>{de63bbb0-624d-429e-b991-db736f56e5f1}</Project>
+      <Name>Auth.Entity</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

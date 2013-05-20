@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationExample.KeyGe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationExample.Web", "AuthenticationExample.Web\AuthenticationExample.Web.csproj", "{FD393AA1-CC82-4B76-9AAB-C968F4A39C6D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth.Entity", "Auth.Entity\Auth.Entity.csproj", "{DE63BBB0-624D-429E-B991-DB736F56E5F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,16 @@ Global
 		{FD393AA1-CC82-4B76-9AAB-C968F4A39C6D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{FD393AA1-CC82-4B76-9AAB-C968F4A39C6D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{FD393AA1-CC82-4B76-9AAB-C968F4A39C6D}.Release|x86.ActiveCfg = Release|Any CPU
+		{DE63BBB0-624D-429E-B991-DB736F56E5F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE63BBB0-624D-429E-B991-DB736F56E5F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE63BBB0-624D-429E-B991-DB736F56E5F1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{DE63BBB0-624D-429E-B991-DB736F56E5F1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{DE63BBB0-624D-429E-B991-DB736F56E5F1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DE63BBB0-624D-429E-B991-DB736F56E5F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE63BBB0-624D-429E-B991-DB736F56E5F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE63BBB0-624D-429E-B991-DB736F56E5F1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{DE63BBB0-624D-429E-B991-DB736F56E5F1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{DE63BBB0-624D-429E-B991-DB736F56E5F1}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
