@@ -5,19 +5,20 @@ using AppHarbor.Web.Security;
 using Auth.Enitity;
 using Auth.Data.PersistenceSupport;
 using AuthenticationExample.Web.ViewModels;
+using Auth.Business;
 
 namespace AuthenticationExample.Web.Controllers
 {
 	public class SessionController : Controller
 	{
 		private readonly IAuthenticator _authenticator;
-		private readonly IRepository _repository;
+		private readonly IAccountService _accountService;
 		private const string errorMessage = "Invalid username or password";
 
-		public SessionController(IAuthenticator authenticator, IRepository repository)
+        public SessionController(IAuthenticator authenticator, IAccountService repository)
 		{
 			_authenticator = authenticator;
-			_repository = repository;
+			_accountService = repository;
 		}
 
 		[HttpGet]
@@ -32,7 +33,7 @@ namespace AuthenticationExample.Web.Controllers
 			User user = null;
 			if (ModelState.IsValid)
 			{
-				user = _repository.GetAll<User>().SingleOrDefault(x => x.Username == sessionViewModel.Username);
+				user = _accountService.GetAll<User>().SingleOrDefault(x => x.Username == sessionViewModel.Username);
 				if (user == null)
 				{
 					ModelState.AddModelError(string.Empty, errorMessage);

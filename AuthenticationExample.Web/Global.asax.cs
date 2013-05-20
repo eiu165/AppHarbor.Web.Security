@@ -5,6 +5,7 @@ using AppHarbor.Web.Security;
 using AuthenticationExample.Web.Mvc;
 using Auth.Data.PersistenceSupport;
 using StructureMap;
+using Auth.Business;
 
 namespace AuthenticationExample.Web
 {
@@ -27,15 +28,12 @@ namespace AuthenticationExample.Web
 			ControllerBuilder.Current.SetControllerFactory(new StructureMapControllerFactory());
 
 			ObjectFactory.Initialize(x =>
-			{
-				x.For<IRepository>()
-					.Use(new InMemoryUserRepository());
-				x.For<HttpContextBase>()
-					.Use(() => new HttpContextWrapper(HttpContext.Current));
-				x.For<ICookieAuthenticationConfiguration>()
-					.Use<ConfigFileAuthenticationConfiguration>();
-				x.For<IAuthenticator>()
-					.Use<CookieAuthenticator>();
+            {
+                x.For<IRepository>().Use(new InMemoryUserRepository());
+                x.For<IAccountService>().Use(new AccountService(ObjectFactory.GetInstance<IRepository>()));
+				x.For<HttpContextBase>().Use(() => new HttpContextWrapper(HttpContext.Current));
+				x.For<ICookieAuthenticationConfiguration>().Use<ConfigFileAuthenticationConfiguration>();
+				x.For<IAuthenticator>().Use<CookieAuthenticator>();
 			});
 
 			AreaRegistration.RegisterAllAreas();

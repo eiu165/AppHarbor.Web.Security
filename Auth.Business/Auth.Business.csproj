@@ -39,8 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="AccountService.cs" />
+    <Compile Include="IAccountService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Auth.Data\Auth.Data.csproj">
+      <Project>{8d2aad24-50e8-4b84-abe9-6652f6fb4e68}</Project>
+      <Name>Auth.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Auth.Entity\Auth.Entity.csproj">
+      <Project>{de63bbb0-624d-429e-b991-db736f56e5f1}</Project>
+      <Name>Auth.Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

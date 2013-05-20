@@ -71,6 +71,10 @@
       <Project>{BA59E36D-677F-4F70-94DF-C75C8860F67B}</Project>
       <Name>AppHarbor.Web.Security</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Auth.Business\Auth.Business.csproj">
+      <Project>{23c874cf-8690-451e-9fac-9f793e5f12da}</Project>
+      <Name>Auth.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Auth.Data\Auth.Data.csproj">
       <Project>{8d2aad24-50e8-4b84-abe9-6652f6fb4e68}</Project>
       <Name>Auth.Data</Name>

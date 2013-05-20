@@ -17,8 +17,7 @@ namespace Auth.Data.PersistenceSupport
 			if (_dictionaries.TryGetValue(typeof(T), out dictionary))
 			{
 				return (T)dictionary[id];
-			}
-
+			} 
 			return default(T);
 		}
 
@@ -30,8 +29,7 @@ namespace Auth.Data.PersistenceSupport
 			{
 				dictionary = new Dictionary<Guid, object>();
 				_dictionaries.Add(type, dictionary);
-			}
-
+			} 
 			dictionary[entity.Id] = entity;
 		}
 
@@ -41,8 +39,7 @@ namespace Auth.Data.PersistenceSupport
 			if (_dictionaries.ContainsKey(type))
 			{
 				return _dictionaries[type].Values.OfType<T>().AsQueryable();
-			}
-
+			} 
 			return Enumerable.Empty<T>().AsQueryable();
 		}
 	}
