@@ -87,10 +87,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Mvc\StructureMapControllerFactory.cs" />
+    <Compile Include="Code\Infastructure\Ioc\StructureMapControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\SessionViewModel.cs" />
-    <Compile Include="ViewModels\UserInputModel.cs" />
+    <Compile Include="Code\ViewModels\SessionViewModel.cs" />
+    <Compile Include="Code\ViewModels\UserInputModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
