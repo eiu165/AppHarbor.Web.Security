@@ -33,7 +33,7 @@ namespace AuthenticationExample.Web.Controllers
 			User user = null;
 			if (ModelState.IsValid)
 			{
-				user = _accountService.GetAll().SingleOrDefault(x => x.Username == sessionViewModel.Username);
+                user = _accountService.GetByUsername(sessionViewModel.Username); //.GetAll().SingleOrDefault(x => x.Username == sessionViewModel.Username);
 				if (user == null)
 				{
 					ModelState.AddModelError(string.Empty, errorMessage);

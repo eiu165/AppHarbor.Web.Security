@@ -6,9 +6,10 @@ using System.Collections.Generic;
 namespace Auth.Data.PersistenceSupport
 {
 	public interface IUserRepository
-	{
-        User Get(Guid id) ;
+    {
+        User Get(Guid id);
+        User GetByUsername(string username);
         IEnumerable<User> GetAll ();
-        void SaveOrUpdate (User entity);
+        void Insert (User entity);
 	}
 }

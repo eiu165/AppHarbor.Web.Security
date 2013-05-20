@@ -6,6 +6,7 @@ using AuthenticationExample.Web.Mvc;
 using Auth.Data.PersistenceSupport;
 using StructureMap;
 using Auth.Business;
+using System.Configuration;
 
 namespace AuthenticationExample.Web
 {
@@ -25,17 +26,18 @@ namespace AuthenticationExample.Web
 
 		protected void Application_Start()
 		{
-			ControllerBuilder.Current.SetControllerFactory(new StructureMapControllerFactory());
-            
-            ObjectFactory.Configure(x => x.ForRequestedType<IUserRepository>().TheDefaultIsConcreteType<InMemoryUserRepository>());
-            ObjectFactory.Configure(x => x.ForRequestedType<ICookieAuthenticationConfiguration>().TheDefaultIsConcreteType<ConfigFileAuthenticationConfiguration>());
-            ObjectFactory.Configure(x => x.ForRequestedType<IAuthenticator>().TheDefaultIsConcreteType<CookieAuthenticator>());
-            ObjectFactory.Configure(x => x.ForRequestedType<IAccountService>().TheDefaultIsConcreteType<AccountService>()); 
-            ObjectFactory.Initialize(x => 
-            {
-				x.For<HttpContextBase>().Use(() => new HttpContextWrapper(HttpContext.Current)); 
-			});
+            var connectionString = ConfigurationManager.ConnectionStrings["ApplicationConnectionString"].ConnectionString;
+
+            ObjectFactory.Initialize(x =>
+            { 
+                x.For<IUserRepository>().Use<SqlUserRepository>().WithCtorArg("connectionString").EqualTo(connectionString);
+                x.For<IAccountService>().Use<AccountService>();
+                x.For<HttpContextBase>().Use(() => new HttpContextWrapper(HttpContext.Current));
+                x.For<ICookieAuthenticationConfiguration>().Use<ConfigFileAuthenticationConfiguration>();
+                x.For<IAuthenticator>().Use<CookieAuthenticator>(); 
+            }); 
               
+			ControllerBuilder.Current.SetControllerFactory(new StructureMapControllerFactory());
 
 			AreaRegistration.RegisterAllAreas();
 

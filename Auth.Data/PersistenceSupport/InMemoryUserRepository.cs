@@ -21,7 +21,7 @@ namespace Auth.Data.PersistenceSupport
             return default(User);
 		}
 
-        public void SaveOrUpdate (User entity)  
+        public void Insert (User entity)  
 		{
             var type = typeof(User);
 			IDictionary<Guid, object> dictionary;
@@ -47,6 +47,12 @@ namespace Auth.Data.PersistenceSupport
         {
             throw new NotImplementedException();
         }
-         
+
+
+
+        public User GetByUsername(string username)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

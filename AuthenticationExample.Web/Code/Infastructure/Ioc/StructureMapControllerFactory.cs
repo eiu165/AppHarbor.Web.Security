@@ -1,10 +1,9 @@
-﻿using System;
-using System.Web.Mvc;
-using System.Web.Routing;
-using StructureMap;
-
-namespace AuthenticationExample.Web.Mvc
+﻿namespace AuthenticationExample.Web.Mvc
 {
+    using System;
+    using System.Web.Mvc;
+    using System.Web.Routing;
+    using StructureMap;
 	public class StructureMapControllerFactory : DefaultControllerFactory
 	{
 		public override IController CreateController(RequestContext requestContext, string controllerName)

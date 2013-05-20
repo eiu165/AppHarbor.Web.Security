@@ -3,21 +3,21 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AppHarbor.Web.Security;
-using Auth.Enitity;
-using Auth.Data.PersistenceSupport;
+using Auth.Enitity; 
 using AuthenticationExample.Web.ViewModels;
+using Auth.Business;
 
 namespace AuthenticationExample.Web.Controllers
 {
 	public class UserController : Controller
 	{
 		private readonly IAuthenticator _authenticator;
-		private readonly IUserRepository _repository;
+		private readonly IAccountService _accountService;
 
-		public UserController(IAuthenticator authenticator, IUserRepository repository)
+        public UserController(IAuthenticator authenticator, IAccountService accountService)
 		{
 			_authenticator = authenticator;
-			_repository = repository;
+            _accountService = accountService;
 		}
 
 		[HttpGet]
@@ -29,7 +29,7 @@ namespace AuthenticationExample.Web.Controllers
 		[HttpPost]
 		public ActionResult Create(UserInputModel userInputModel)
 		{
-			if (_repository.GetAll().Any(x => x.Username == userInputModel.Username))
+            if (_accountService.GetByUsername(userInputModel.Username) != null)
 			{
 				ModelState.AddModelError("Username", "Username is already in use");
 			}
@@ -43,7 +43,7 @@ namespace AuthenticationExample.Web.Controllers
 					Password = HashPassword(userInputModel.Password),
 				};
 
-				_repository.SaveOrUpdate(user);
+				_accountService.SaveOrUpdate(user);
 
 				_authenticator.SetCookie(user.Username);
 
@@ -57,7 +57,7 @@ namespace AuthenticationExample.Web.Controllers
 		[Authorize]
 		public ActionResult Show()
 		{
-			var user = _repository.GetAll().SingleOrDefault(x => x.Username == User.Identity.Name);
+			var user = _accountService.GetByUsername(User.Identity.Name);  
 			if (user == null)
 			{
 				throw new HttpException(404, "Not found");

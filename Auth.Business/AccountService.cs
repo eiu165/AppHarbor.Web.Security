@@ -15,9 +15,13 @@ namespace Auth.Business
             _repository = repository;
         }
 
-        public User Get (Guid id) 
+        public User Get(Guid id)
         {
             return _repository.Get(id);
+        }
+        public User GetByUsername(string username)
+        {
+            return _repository.GetByUsername(  username);
         }
 
         public IEnumerable<User> GetAll()  
@@ -27,7 +31,7 @@ namespace Auth.Business
 
         public void SaveOrUpdate(User entity)  
         {
-            _repository.SaveOrUpdate(entity);
+            _repository.Insert(entity);
         }
     }
 }

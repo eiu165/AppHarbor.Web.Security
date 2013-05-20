@@ -28,10 +28,8 @@ BEGIN
 	
 	BEGIN TRANSACTION;
 	INSERT INTO [dbo].[Membership](   [Name], [Password], [PasswordSalt] )
-	SELECT  N'a',   N'aaa',   N''   UNION ALL
-	SELECT  N'b',   N'aaa',   N''   UNION ALL
-	SELECT  N'c',   N'aaa',   N''   UNION ALL
-	SELECT  N'd',   N'aaa',   N''     
+	SELECT  N'dev',   N'aaa',   N''   UNION ALL
+	SELECT  N'admin',   N'aaa',   N'' 
 	COMMIT;
 
 	
