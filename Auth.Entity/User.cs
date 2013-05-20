@@ -1,4 +1,4 @@
-﻿namespace AuthenticationExample.Web.Model
+﻿namespace Auth.Enitity
 {
 	public class User : Entity
 	{

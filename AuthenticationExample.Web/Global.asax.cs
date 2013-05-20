@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using AppHarbor.Web.Security;
 using AuthenticationExample.Web.Mvc;
-using AuthenticationExample.Web.PersistenceSupport;
+using Auth.Data.PersistenceSupport;
 using StructureMap;
 
 namespace AuthenticationExample.Web
@@ -29,7 +29,7 @@ namespace AuthenticationExample.Web
 			ObjectFactory.Initialize(x =>
 			{
 				x.For<IRepository>()
-					.Use(new InMemoryRepository());
+					.Use(new InMemoryUserRepository());
 				x.For<HttpContextBase>()
 					.Use(() => new HttpContextWrapper(HttpContext.Current));
 				x.For<ICookieAuthenticationConfiguration>()

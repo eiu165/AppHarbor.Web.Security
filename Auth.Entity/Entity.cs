@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AuthenticationExample.Web.Model
+namespace Auth.Enitity
 {
 	public abstract class Entity
 	{

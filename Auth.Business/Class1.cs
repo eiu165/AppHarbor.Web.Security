@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Auth.Entity
+namespace Auth.Business
 {
     public class Class1
     {

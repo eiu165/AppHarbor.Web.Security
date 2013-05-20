@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AuthenticationExample.Web.Model;
-using AuthenticationExample.Web.PersistenceSupport;
+using Auth.Enitity;
+using Auth.Data.PersistenceSupport;
 
-namespace AuthenticationExample.Web
+namespace Auth.Data.PersistenceSupport
 {
-	public class InMemoryRepository : IRepository
+	public class InMemoryUserRepository : IRepository
 	{
 		private static IDictionary<Type, IDictionary<Guid, object>> _dictionaries =
 			new Dictionary<Type, IDictionary<Guid, object>>();

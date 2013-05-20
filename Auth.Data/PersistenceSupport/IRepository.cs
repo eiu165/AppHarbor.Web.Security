@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
-using AuthenticationExample.Web.Model;
+using Auth.Enitity;
 
-namespace AuthenticationExample.Web.PersistenceSupport
+namespace Auth.Data.PersistenceSupport
 {
 	public interface IRepository
 	{

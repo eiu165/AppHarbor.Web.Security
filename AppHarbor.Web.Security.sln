@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationExample.Web",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth.Entity", "Auth.Entity\Auth.Entity.csproj", "{DE63BBB0-624D-429E-B991-DB736F56E5F1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth.Data", "Auth.Data\Auth.Data.csproj", "{8D2AAD24-50E8-4B84-ABE9-6652F6FB4E68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth.Business", "Auth.Business\Auth.Business.csproj", "{23C874CF-8690-451E-9FAC-9F793E5F12DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +69,26 @@ Global
 		{DE63BBB0-624D-429E-B991-DB736F56E5F1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{DE63BBB0-624D-429E-B991-DB736F56E5F1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{DE63BBB0-624D-429E-B991-DB736F56E5F1}.Release|x86.ActiveCfg = Release|Any CPU
+		{8D2AAD24-50E8-4B84-ABE9-6652F6FB4E68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D2AAD24-50E8-4B84-ABE9-6652F6FB4E68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D2AAD24-50E8-4B84-ABE9-6652F6FB4E68}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8D2AAD24-50E8-4B84-ABE9-6652F6FB4E68}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8D2AAD24-50E8-4B84-ABE9-6652F6FB4E68}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8D2AAD24-50E8-4B84-ABE9-6652F6FB4E68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D2AAD24-50E8-4B84-ABE9-6652F6FB4E68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D2AAD24-50E8-4B84-ABE9-6652F6FB4E68}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8D2AAD24-50E8-4B84-ABE9-6652F6FB4E68}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8D2AAD24-50E8-4B84-ABE9-6652F6FB4E68}.Release|x86.ActiveCfg = Release|Any CPU
+		{23C874CF-8690-451E-9FAC-9F793E5F12DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23C874CF-8690-451E-9FAC-9F793E5F12DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23C874CF-8690-451E-9FAC-9F793E5F12DA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{23C874CF-8690-451E-9FAC-9F793E5F12DA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{23C874CF-8690-451E-9FAC-9F793E5F12DA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{23C874CF-8690-451E-9FAC-9F793E5F12DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23C874CF-8690-451E-9FAC-9F793E5F12DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23C874CF-8690-451E-9FAC-9F793E5F12DA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{23C874CF-8690-451E-9FAC-9F793E5F12DA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{23C874CF-8690-451E-9FAC-9F793E5F12DA}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

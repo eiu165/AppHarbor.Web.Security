@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DE63BBB0-624D-429E-B991-DB736F56E5F1}</ProjectGuid>
+    <ProjectGuid>{8D2AAD24-50E8-4B84-ABE9-6652F6FB4E68}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Auth.Entity</RootNamespace>
-    <AssemblyName>Auth.Entity</AssemblyName>
+    <RootNamespace>Auth.Data</RootNamespace>
+    <AssemblyName>Auth.Data</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,9 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity.cs" />
+    <Compile Include="PersistenceSupport\InMemoryUserRepository.cs" />
+    <Compile Include="PersistenceSupport\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppHarbor.Web.Security\AppHarbor.Web.Security.csproj">
+      <Project>{ba59e36d-677f-4f70-94df-c75c8860f67b}</Project>
+      <Name>AppHarbor.Web.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Auth.Entity\Auth.Entity.csproj">
+      <Project>{de63bbb0-624d-429e-b991-db736f56e5f1}</Project>
+      <Name>Auth.Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
