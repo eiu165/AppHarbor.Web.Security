@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
-using AppHarbor.Web.Security; 
-using AuthenticationExample.Castle.Web.ViewModels;
-using AuthenticationExample.Castle.Web.PersistenceSupport;
-using AuthenticationExample.Castle.Web.Model;
+using AppHarbor.Web.Security;
+using AuthenticationExample.StructureMap.Web.Model;
+using AuthenticationExample.StructureMap.Web.PersistenceSupport;
+using AuthenticationExample.StructureMap.Web.ViewModels;
 
-namespace AuthenticationExample.Castle.Web.Controllers
+namespace AuthenticationExample.StructureMap.Web.Controllers
 {
 	public class SessionController : Controller
 	{

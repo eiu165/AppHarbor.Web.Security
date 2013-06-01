@@ -3,21 +3,21 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AppHarbor.Web.Security;
-using AuthenticationExample.Castle.Web.ViewModels;
-using AuthenticationExample.Castle.Web.Model;
-using AuthenticationExample.Castle.Web.PersistenceSupport;  
+using AuthenticationExample.StructureMap.Web.Model;
+using AuthenticationExample.StructureMap.Web.PersistenceSupport;
+using AuthenticationExample.StructureMap.Web.ViewModels;
 
-namespace AuthenticationExample.Castle.Web.Controllers
+namespace AuthenticationExample.StructureMap.Web.Controllers
 {
 	public class UserController : Controller
-    {
-        private readonly IAuthenticator _authenticator;
-        private readonly IRepository _repository;
+	{
+		private readonly IAuthenticator _authenticator;
+		private readonly IRepository _repository;
 
-        public UserController(IAuthenticator authenticator, IRepository  repository)
-        {
-            _authenticator = authenticator;
-            _repository = repository;
+		public UserController(IAuthenticator authenticator, IRepository repository)
+		{
+			_authenticator = authenticator;
+			_repository = repository;
 		}
 
 		[HttpGet]

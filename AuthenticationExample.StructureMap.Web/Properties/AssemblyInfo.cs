@@ -1,11 +1,11 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("AuthenticationExample.Castle.Web")]
+[assembly: AssemblyTitle("AuthenticationExample.StructureMap.Web")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("AuthenticationExample.Castle.Web")]
+[assembly: AssemblyProduct("AuthenticationExample.StructureMap.Web")]
 [assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

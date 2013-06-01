@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AuthenticationExample.Web</RootNamespace>
-    <AssemblyName>AuthenticationExample.Web</AssemblyName>
+    <RootNamespace>AuthenticationExample.Castle.Web</RootNamespace>
+    <AssemblyName>AuthenticationExample.Castle.Web</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>false</UseIISExpress>
@@ -49,8 +49,14 @@
     <Reference Include="BCrypt.Net">
       <HintPath>..\packages\BCrypt-Official.0.1.107\lib\BCrypt.Net.dll</HintPath>
     </Reference>
-    <Reference Include="StructureMap">
-      <HintPath>..\packages\structuremap.2.6.3\lib\StructureMap.dll</HintPath>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.2.0\lib\net40-client\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Facilities.FactorySupport">
+      <HintPath>..\packages\Castle.FactorySupportFacility.3.2.0\lib\net40\Castle.Facilities.FactorySupport.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.2.0\lib\net40\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -65,23 +71,12 @@
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Configuration" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AppHarbor.Web.Security\AppHarbor.Web.Security.csproj">
       <Project>{BA59E36D-677F-4F70-94DF-C75C8860F67B}</Project>
       <Name>AppHarbor.Web.Security</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Auth.Business\Auth.Business.csproj">
-      <Project>{23c874cf-8690-451e-9fac-9f793e5f12da}</Project>
-      <Name>Auth.Business</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Auth.Data\Auth.Data.csproj">
-      <Project>{8d2aad24-50e8-4b84-abe9-6652f6fb4e68}</Project>
-      <Name>Auth.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Auth.Entity\Auth.Entity.csproj">
-      <Project>{de63bbb0-624d-429e-b991-db736f56e5f1}</Project>
-      <Name>Auth.Entity</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -91,7 +86,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Code\Infastructure\Ioc\StructureMapControllerFactory.cs" />
+    <Compile Include="Infastructure\ControllersInstaller.cs" />
+    <Compile Include="Infastructure\WindsorControllerFactory.cs" />
+    <Compile Include="Model\Entity.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="PersistenceSupport\InMemoryRepository.cs" />
+    <Compile Include="PersistenceSupport\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Code\ViewModels\SessionViewModel.cs" />
     <Compile Include="Code\ViewModels\UserInputModel.cs" />

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AuthenticationExample.Castle.Web.ViewModels
+namespace AuthenticationExample.StructureMap.Web.ViewModels
 {
 	public class UserInputModel
 	{

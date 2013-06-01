@@ -1,12 +1,12 @@
-﻿@model AuthenticationExample.Castle.Web.ViewModels.SessionViewModel
+﻿@model AuthenticationExample.StructureMap.Web.ViewModels.UserInputModel
 
 @{
-	ViewBag.Title = "Log in";
+	ViewBag.Title = "New user";
 }
 
-<h2>Log in</h2>
+<h2>New user</h2>
 
-@using (Html.BeginForm("Create", "Session")) {
+@using (Html.BeginForm("Create", "User")) {
 	<fieldset>
 		<p>
 			@Html.LabelFor(x => x.Username)
@@ -20,12 +20,8 @@
 			@Html.ValidationMessageFor(x => x.Password)
 		</p>
 
-		@Html.ValidationSummary(true)
-
 		<p>
-			<button type="submit">Sign in</button>
+			<button type="submit">Sign up</button>
 		</p>
-
-		@Html.Hidden("ReturnUrl", Model.ReturnUrl)
 	</fieldset>
 }

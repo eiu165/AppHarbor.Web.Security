@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppHarbor.Web.Security", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationExample.KeyGenerator", "KeyGenerator\AuthenticationExample.KeyGenerator.csproj", "{F74A84FA-5EF8-4E62-B155-DB7D51CEC134}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationExample.Web", "AuthenticationExample.Web\AuthenticationExample.Web.csproj", "{FD393AA1-CC82-4B76-9AAB-C968F4A39C6D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationExample.Castle.Web", "AuthenticationExample.Web\AuthenticationExample.Castle.Web.csproj", "{FD393AA1-CC82-4B76-9AAB-C968F4A39C6D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth.Entity", "Auth.Entity\Auth.Entity.csproj", "{DE63BBB0-624D-429E-B991-DB736F56E5F1}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth.Business", "Auth.Business\Auth.Business.csproj", "{23C874CF-8690-451E-9FAC-9F793E5F12DA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth.SolutionItem", "Auth.SolutionItem\Auth.SolutionItem.csproj", "{9249A9D5-4704-4207-AD46-1641738FA689}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationExample.StructureMap.Web", "AuthenticationExample.StructureMap.Web\AuthenticationExample.StructureMap.Web.csproj", "{85E122D0-2EFA-48B9-933C-034D3D29A1DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,6 +103,16 @@ Global
 		{9249A9D5-4704-4207-AD46-1641738FA689}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{9249A9D5-4704-4207-AD46-1641738FA689}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{9249A9D5-4704-4207-AD46-1641738FA689}.Release|x86.ActiveCfg = Release|Any CPU
+		{85E122D0-2EFA-48B9-933C-034D3D29A1DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85E122D0-2EFA-48B9-933C-034D3D29A1DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85E122D0-2EFA-48B9-933C-034D3D29A1DD}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{85E122D0-2EFA-48B9-933C-034D3D29A1DD}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{85E122D0-2EFA-48B9-933C-034D3D29A1DD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{85E122D0-2EFA-48B9-933C-034D3D29A1DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85E122D0-2EFA-48B9-933C-034D3D29A1DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85E122D0-2EFA-48B9-933C-034D3D29A1DD}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{85E122D0-2EFA-48B9-933C-034D3D29A1DD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{85E122D0-2EFA-48B9-933C-034D3D29A1DD}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,12 +1,11 @@
-﻿using System.Web.Mvc; 
+﻿using System.Web.Mvc;
 
-
-namespace AuthenticationExample.Castle.Web.Controllers
+namespace AuthenticationExample.StructureMap.Web.Controllers
 {
 	public class HomeController : Controller
 	{
 		public ActionResult Index()
-		{ 
+		{
 			return View();
 		}
 	}

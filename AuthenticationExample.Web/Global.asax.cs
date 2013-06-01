@@ -1,47 +1,66 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using AppHarbor.Web.Security;
-using AuthenticationExample.Web.Mvc;
-using Auth.Data.PersistenceSupport;
-using StructureMap;
-using Auth.Business;
-using System.Configuration;
+using AppHarbor.Web.Security; 
+using AuthenticationExample.Castle.Web.Infastructure;
+using Castle.Windsor;
+using AuthenticationExample.Castle.Web.PersistenceSupport;
+using Castle.MicroKernel.Registration;
 
-namespace AuthenticationExample.Web
+namespace AuthenticationExample.Castle.Web
 {
 	public class MvcApplication : System.Web.HttpApplication
-	{
+    {
+
+        public static IWindsorContainer _container;
+
 		public static void RegisterRoutes(RouteCollection routes)
 		{
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 			routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" });
 
-			routes.MapRoute(
-				"Default", // Route name
-				"{controller}/{action}/{id}", // URL with parameters
-				new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
-			);
+            routes.MapRoute(
+                "Default", // Route name
+
+                "{controller}/{action}/{id}", // URL with parameters
+
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                , new string[] { "AuthenticationExample.Castle.Web.Controllers" }
+            );
 		}
 
 		protected void Application_Start()
-		{
-            var connectionString = ConfigurationManager.ConnectionStrings["ApplicationConnectionString"].ConnectionString;
-
-            ObjectFactory.Initialize(x =>
-            { 
-                x.For<IUserRepository>().Use<SqlUserRepository>().WithCtorArg("connectionString").EqualTo(connectionString);
-                x.For<IAccountService>().Use<AccountService>();
-                x.For<HttpContextBase>().Use(() => new HttpContextWrapper(HttpContext.Current));
-                x.For<ICookieAuthenticationConfiguration>().Use<ConfigFileAuthenticationConfiguration>();
-                x.For<IAuthenticator>().Use<CookieAuthenticator>(); 
-            }); 
-              
-			ControllerBuilder.Current.SetControllerFactory(new StructureMapControllerFactory());
+        {
+            BootstrapContainer();
+             
 
 			AreaRegistration.RegisterAllAreas();
 
 			RegisterRoutes(RouteTable.Routes);
 		}
+
+
+
+        private static void BootstrapContainer()
+        {
+            _container = new WindsorContainer();
+            var controllerFactory = new WindsorControllerFactory(_container.Kernel);
+            ControllerBuilder.Current.SetControllerFactory(controllerFactory);
+
+
+
+            _container.Install(
+                //new CommonInstaller(),
+                new ControllersInstaller()
+                );
+
+
+            _container.Register(Component.For<IRepository>().ImplementedBy<InMemoryRepository>().LifeStyle.Singleton);
+            _container.Register(Component.For<ICookieAuthenticationConfiguration>().ImplementedBy<ConfigFileAuthenticationConfiguration>().LifeStyle.PerWebRequest);
+            _container.Register(Component.For<IAuthenticator>().ImplementedBy<CookieAuthenticator>().LifeStyle.PerWebRequest);
+
+        }
+
+
 	}
 }
